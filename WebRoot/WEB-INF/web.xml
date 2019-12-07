@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 首页商品 显示-->
+  <servlet>
+  <servlet-name>IndexServlet</servlet-name>
+  <servlet-class>com.xshop.control.IndexServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>IndexServlet</servlet-name>
+  <url-pattern>/index.action</url-pattern>
+  </servlet-mapping>
+  <!-- 后台商品分类管理 -->
+  <servlet>
+    <servlet-name>CategoryManagerServlet</servlet-name>
+    <servlet-class>com.xshop.control.CategoryManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryManagerServlet</servlet-name>
+    <url-pattern>/admin/Category.action</url-pattern>
+  </servlet-mapping>
+  
+  <!--字符编码过滤  -->
+  <filter>
+  <filter-name>charencoding</filter-name>
+  <filter-class>com.xshop.filter.CharEncodingFilter</filter-class>
+  <init-param>
+  <param-name>encoding</param-name>
+  <param-value>UTF-8</param-value>
+  </init-param>
+  </filter>
+  <filter-mapping>
+  <filter-name>charencoding</filter-name>
+  <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!--后台商品管理  -->
+  <servlet>
+    <servlet-name>ProductManagerServlet</servlet-name>
+    <servlet-class>com.xshop.control.ProductManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductManagerServlet</servlet-name>
+    <url-pattern>/admin/Product.action</url-pattern>
+  </servlet-mapping>
+  <!-- 后台管理员管理 -->
+   <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>com.xshop.control.AdminManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/Admin.action</url-pattern>
+  </servlet-mapping>
+  <!-- 购物车管理 -->
+   <servlet>
+    <servlet-name>ShopCartServlet</servlet-name>
+    <servlet-class>com.xshop.control.ShopCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShopCartServlet</servlet-name>
+    <url-pattern>/ShopCart.action</url-pattern>
+  </servlet-mapping>
+  <!-- 登陆注册管理 -->
+  <servlet>
+    <servlet-name>LogRegServlet</servlet-name>
+    <servlet-class>com.xshop.control.LogRegServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogRegServlet</servlet-name>
+    <url-pattern>/LogReg.action</url-pattern>
+  </servlet-mapping>
+  <!-- 地址薄管理 -->
+  <servlet>
+    <servlet-name>AddressBookServlet</servlet-name>
+    <servlet-class>com.xshop.control.AddressBookServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>AddressBookServlet</servlet-name>
+    <url-pattern>/AddressBook.action</url-pattern>
+  </servlet-mapping>
+  <!-- 订单管理 -->
+  <servlet>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>com.xshop.control.OrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/Orders.action</url-pattern>
+  </servlet-mapping>
+ <!-- 登录验证的过滤器 -->
+  <filter>
+  	<filter-name>loginfilter</filter-name>
+  	<filter-class>com.xshop.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>loginfilter</filter-name>
+  	<url-pattern>/admin/*</url-pattern>
+  	<url-pattern>/people/*</url-pattern>
+  </filter-mapping>
+
+
+</web-app>
